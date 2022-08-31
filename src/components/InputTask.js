@@ -19,7 +19,7 @@ export default function InputTask(props) {
     const [error, setError] = useState(false);
 
     //instacia de l prop que viene desde app.js
-    const {crearTask} = props;
+    const { crearTask } = props;
 
     /**
      * captura lo que viene en el input taskName
@@ -31,7 +31,6 @@ export default function InputTask(props) {
             ...task,
             [e.target.name]: e.target.value//actualiza
         });
-        console.log(task);
     }
 
     /**
@@ -44,19 +43,15 @@ export default function InputTask(props) {
             ...task,
             [data.name]: data.value//actualiza
         });
-
-        console.log(task);
-
-
     }
 
     const onSubmitTask = (e) => {
-    
+
         //evitar recargar la pagina
         e.preventDefault();
-        
+
         //validaciones
-        if (task.taskName.trim() ==="") {
+        if (task.taskName.trim() === "") {
             setError(true);
             return;
         }
@@ -66,10 +61,16 @@ export default function InputTask(props) {
 
         //asignar id
         task.idTask = uuidv4();
-        console.log(`id ${task.idTask}`);
 
         //crear task
         crearTask(task);
+
+        //limpiar los inputs
+        setTask({
+            idTask: "",
+            taskName: "",
+            categoryTask: "",
+        });
 
 
     }
@@ -95,7 +96,7 @@ export default function InputTask(props) {
                     className="select-form-task"
                     name="categoryTask"
                     placeholder="Categoria"
-                    value={task.categoryName}
+                    value={task.categoryTask}
                     onChange={onChangeCategory}
                 />
                 <Button
