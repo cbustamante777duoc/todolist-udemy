@@ -5,10 +5,14 @@ import InputTask from "./components/InputTask";
 
 function App() {
 
+  const crearTask = (task) =>{
+    console.log(task);
+  }
+
   return (
     <Container>
       <Header />
-      <InputTask/>
+      <InputTask crearTask={crearTask}/>
     </Container>
   );
 }

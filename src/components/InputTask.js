@@ -10,13 +10,16 @@ const options = [
     { key: "otra", text: "Otra", value: "otra" },
 ];
 
-export default function InputTask() {
+export default function InputTask(props) {
     const [task, setTask] = useState({
         idTask: "",
         taskName: "",
         categoryTask: "",
     });
     const [error, setError] = useState(false);
+
+    //instacia de l prop que viene desde app.js
+    const {crearTask} = props;
 
     /**
      * captura lo que viene en el input taskName
@@ -64,6 +67,9 @@ export default function InputTask() {
         //asignar id
         task.idTask = uuidv4();
         console.log(`id ${task.idTask}`);
+
+        //crear task
+        crearTask(task);
 
 
     }
