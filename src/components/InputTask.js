@@ -1,5 +1,4 @@
 import { Select, Input, Grid, Button, Header, Icon } from 'semantic-ui-react';
-// import { Select, Input, Button, Grid, Header, Icon } from "semantic-ui-react";
 import { useState } from 'react';
 import { v4 as uuidv4 } from "uuid";
 
@@ -18,7 +17,7 @@ export default function InputTask(props) {
     });
     const [error, setError] = useState(false);
 
-    //instacia de l prop que viene desde app.js
+    //recibe funcion desde  app.js
     const { crearTask } = props;
 
     /**
